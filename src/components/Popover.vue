@@ -2,16 +2,16 @@
   <v-popover class="v-popover-container" trigger="hover" :autoHide="false">
     <span class="translatable" @click="onClick">{{ word }}</span>
     <div class="popover-container" slot="popover">
-      <div>{{ dictKey }}</div>
-      <div class="bold">{{ eng }}</div>
-      <div v-if="translations['syntax-hints-pl']">
-        {{ translations['syntax-hints-pl'] }}
-      </div>
-      <div v-if="translations['syntax-hints-eng']" class="bold">
-        {{ translations['syntax-hints-eng'] }}
-      </div>
       <div v-if="hasAudio" class="audio-hint">
         <img src="../assets/img/volume.png" />Click on the word
+      </div>
+      <div class="pl">{{ dictKey }}</div>
+      <div class="eng">{{ eng }}</div>
+      <div v-if="hintsPl" class="hints-pl">
+        {{ hintsPl }}
+      </div>
+      <div v-if="hintsEng" class="hints-eng">
+        {{ hintsEng }}
       </div>
     </div>
   </v-popover>
@@ -30,24 +30,38 @@ export default {
     },
   },
   computed: {
-    translations() {
-      return Dictionary.pl[this.dictKey];
+    mainKey() {
+      return this.dictKey.toLowerCase();
     },
     eng() {
-      return this.translations['eng'];
+      return this.getValue('eng');
+    },
+    hintsEng() {
+      return this.getValue('syntax-hints-eng');
+    },
+    hintsPl() {
+      return this.getValue('syntax-hints-pl');
     },
     hasAudio() {
-      return !!this.translations['audio-file-name'];
+      return !!this.getValue('audio-file-name');
     },
   },
   methods: {
+    getValue(key) {
+      const value = Dictionary.pl[this.mainKey][key] || '';
+      if (value.startsWith('ref:')) {
+        const ref = value.split('ref:')[1];
+        return Dictionary.pl[ref][key];
+      }
+      return value;
+    },
     makeSound() {
       if (!this.hasAudio) {
         console.log(`no audio file for ${this.dictKey}`);
         return;
       }
 
-      const filename = this.translations['audio-file-name'];
+      const filename = this.getValue('audio-file-name');
       const audio = new Audio(require(`../assets/audio/${filename}`));
       audio.play();
     },
@@ -59,8 +73,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bold {
-  font-weight: 700;
+@import '../assets/styles/theme.scss';
+.popover-container {
+  font-family: "century";
+  .pl {
+    color: darkturquoise;
+    font-weight: 600;
+    font-size: 1em;
+  }
+  .eng {
+    font-size: 0.95em;
+  }
+  .hints-pl {
+    color: $primary;
+    font-weight: 600;
+    font-size: 1em;
+  }
+  .hints-eng {
+    font-size: 0.95em;
+  }
 }
 .audio-hint {
   display: flex;
@@ -73,6 +104,7 @@ export default {
 }
 </style>
 <style lang="scss">
+@import '../assets/styles/theme.scss';
 .tooltip {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   display: block !important;
@@ -159,7 +191,7 @@ export default {
     $color: #2c3e50;
 
     .popover-inner {
-      background: #ececec;
+      background: $bgcolor;
       color: $color;
       padding: 8px;
       border-radius: 5px;
@@ -167,7 +199,7 @@ export default {
     }
 
     .popover-arrow {
-      border-color: #ececec;
+      border-color: $bgcolor;
     }
   }
 

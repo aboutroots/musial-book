@@ -5,7 +5,13 @@ export default class Parser {
   }
 
   getParsedHTML() {
-    const template = `<popover slot="popover" word="$2" dict-key="$3"  />`
-    return this.text.replace(/(\[(.*?),(.*?)\])/gm, template);
- }
+    // parse translations
+    const template = `<popover slot="popover" word="$2" dict-key="$2"  />`;
+    let parsed = this.text.replace(/(\{(.*?)\})/gm, template);
+
+    // parse blank spaces
+    const blanked = `<span class="blanked">$2</span>`;
+    parsed = parsed.replace(/(\|(.*?)\|)/gm, blanked);
+    return parsed;
+  }
 }

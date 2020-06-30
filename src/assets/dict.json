@@ -6,17 +6,29 @@
       "syntax-hints-eng": "a day + good",
       "audio-file-name": "dziendobry.mp3"
     },
-    "krowa": {
-      "eng": "cow"
+    "dzień": {
+      "eng": "a day",
+      "syntax-hints-pl": "dzień",
+      "syntax-hints-eng": "a day",
+      "audio-file-name": "dzien.mp3"
     },
-    "kot": {
-      "eng": "cat"
+    "dobry": {
+      "eng": "good",
+      "syntax-hints-pl": "dobry",
+      "syntax-hints-eng": "good",
+      "audio-file-name": "dobry.mp3"
     },
-    "zakończyć": {
-      "eng": "to end up"
+    "przepraszam": {
+      "eng": "I'm sorry; excuse me; I apologise",
+      "syntax-hints-pl": "przepraszać",
+      "syntax-hints-eng": "to apologise",
+      "audio-file-name": "przepraszam.mp3"
     },
-    "wyobraźnia": {
-      "eng": "imagination"
+    "referencją": {
+      "eng": "ref:dzień",
+      "syntax-hints-pl": "ref:dzień",
+      "syntax-hints-eng": "ref:dzień",
+      "audio-file-name": "ref:dzień"
     }
   }
 }

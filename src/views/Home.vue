@@ -7,7 +7,9 @@
 <script>
 import BookPage from '../components/BookPage';
 import DataParser from '../parser.js';
-import data from 'raw-loader!../assets/text.txt';
+import bookText from 'raw-loader!../assets/text.md';
+import showdown from 'showdown';
+
 
 export default {
   name: 'Home',
@@ -20,7 +22,9 @@ export default {
     };
   },
   mounted() {
-    const parser = new DataParser(data);
+    const converter = new showdown.Converter();
+    const html = converter.makeHtml(bookText);
+    const parser = new DataParser(html);
     this.parsed = parser.getParsedHTML();
   },
 };
