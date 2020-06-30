@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <BookPage :text="parsed" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import BookPage from '../components/BookPage';
+import DataParser from '../parser.js';
+import data from 'raw-loader!../assets/text.txt';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    HelloWorld
-  }
+    BookPage,
+  },
+  data() {
+    return {
+      parsed: '',
+    };
+  },
+  mounted() {
+    const parser = new DataParser(data);
+    this.parsed = parser.getParsedHTML();
+  },
 };
 </script>

@@ -1,0 +1,22 @@
+{
+  "pl": {
+    "dzień dobry": {
+      "eng": "good day; good afternoon",
+      "syntax-hints-pl": "dzień + dobry",
+      "syntax-hints-eng": "a day + good",
+      "audio-file-name": "dziendobry.mp3"
+    },
+    "krowa": {
+      "eng": "cow"
+    },
+    "kot": {
+      "eng": "cat"
+    },
+    "zakończyć": {
+      "eng": "to end up"
+    },
+    "wyobraźnia": {
+      "eng": "imagination"
+    }
+  }
+}
