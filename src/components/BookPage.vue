@@ -39,8 +39,8 @@ export default {
 @import '../assets/styles/theme.scss';
 .translatable {
   // font-weight: 700;
-  font-style: italic;
-  border-bottom: 1px solid $fgcolor;
+  // font-style: italic;
+  border-bottom: 1px dashed $fgcolor;
   cursor: pointer;
 }
 .blanked {

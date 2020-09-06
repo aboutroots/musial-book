@@ -21,3 +21,14 @@ I didn’t know if he felt angry or not, I didn’t know him well at that time. 
 - Yes, it’s {dobry} – answered a young bloke, apparently he was living in Wrocław too. He probably wanted to make a good impression on her. Well, who wouldn’t?
 
 Test słowa z {referencją}.
+
+Po typ akapicie powinna się skonczyć strona.
+
+-----
+
+A tu powinna się zacząć nowa.
+I didn’t know if he felt angry or not, I didn’t know him well at that time. Did he mean that he was going to change the world or what? I don’t know.
+
+- {Przepraszam}, is this ticket |dobry|[good]? – some girl asked me, showing me her ticket. A normal ticket from here.
+
+- Yes, it’s {dobry} – answered a young bloke, apparently he was living in Wrocław too. He probably wanted to make a good impression on her. Well, who wouldn’t?

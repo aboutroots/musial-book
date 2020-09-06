@@ -19,6 +19,19 @@
     </footer>
   </div>
 </template>
+<script>
+import { mapActions } from 'vuex';
+import bookText from 'raw-loader!./assets/text.md';
+export default {
+  name: 'App',
+  mounted() {
+    this.FETCH_BOOK_DATA(bookText);
+  },
+  methods: {
+    ...mapActions(['FETCH_BOOK_DATA']),
+  },
+};
+</script>
 
 <style lang="scss">
 @import './assets/styles/normalize.css';
