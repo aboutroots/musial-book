@@ -1,5 +1,7 @@
 # musial-app
 
+DEMO: https://musial-book.netlify.app/
+
 ## Project setup
 ```
 yarn install
